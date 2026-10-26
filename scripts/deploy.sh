@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Load local .env if present
+if [ -f "${PROJECT_ROOT:-.}/.env" ]; then
+  # shellcheck disable=SC1091
+  source "${PROJECT_ROOT:-.}/.env"
+fi
+
 # Configuration
 TV_IP="${TV_IP:-10.10.201.52}"
 TV_PORT="${TV_PORT:-26101}"
